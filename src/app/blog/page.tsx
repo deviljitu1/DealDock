@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { MarketingDocument } from "@/components/design-preview/marketing-document";
 import styles from "./page.module.css";
-import { blogPosts, formatDate, freeTools } from "@/lib/blog-posts";
+import { listedBlogPosts, formatDate, freeTools } from "@/lib/blog-posts";
 import { MARKETING_ORIGIN } from "@/lib/marketing-config";
 
 const title = "Guides for creators who sell in their DMs";
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: `${MARKETING_ORIGIN}/blog` },
   openGraph: { type: "website", url: `${MARKETING_ORIGIN}/blog`, title, description, siteName: "DealDock", images: [{ url: `${MARKETING_ORIGIN}/opengraph-image`, width: 1200, height: 630, alt: "DealDock" }] },
-  twitter: { card: "summary_large_image", title, description, images: [`${MARKETING_ORIGIN}/opengraph-image`] },
+  twitter: { card: "summary_large_image", title, description, images: [{ url: `${MARKETING_ORIGIN}/opengraph-image`, width: 1200, height: 630, alt: "DealDock guides for creators who sell in their DMs" }] },
   robots: { index: true, follow: true },
 };
 
@@ -32,11 +32,11 @@ export default function BlogIndex() {
       </section>
     }>
       <ul className={styles.postList} aria-label="Latest guides">
-        {blogPosts.map((post) => (
+        {listedBlogPosts.map((post) => (
           <li key={post.slug}>
             <Link href={`/blog/${post.slug}`} className={styles.postCard} aria-labelledby={`post-${post.slug}`}>
               <div className={styles.thumbnail}>
-                <Image src={post.slug === "influencer-brand-dms" ? "/blog/creator-brand-dms.webp" : (post.image?.url ?? "/blog/creator-brand-dms.webp")} alt="" width={768} height={384} sizes="(max-width: 720px) calc(100vw - 72px), 256px" />
+                <Image src={post.thumbnail ?? post.image?.url ?? "/blog/creator-brand-dms.webp"} alt="" width={768} height={384} sizes="(max-width: 720px) calc(100vw - 72px), 256px" />
               </div>
               <div className={styles.postCopy}>
                 <span className={styles.postMeta}>
