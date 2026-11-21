@@ -6,7 +6,7 @@ You are writing one article for the DealDock blog at https://dealdock.io/blog. A
 - Work only in the checkout and branch you are given (Next.js 16 App Router, React 19, TypeScript). Never push, merge or deploy.
 - Read first: `src/app/blog/AGENTS.md` (house rules), `src/app/blog/influencer-brand-dms/page.tsx` (reference article: voice, structure and markup), `src/components/marketing/blog-article.tsx` and `src/lib/blog-posts.ts`.
 - Your article is already registered in `src/lib/blog-posts.ts` with a working title and description. Do **not** edit that file; propose a final title and description in your report instead.
-- Create only the files your assignment lists. Do not commit, push, run `next build` or start a dev server unless told to. When you finish, run `npx tsc --noEmit -p .` and fix any errors in your files.
+- Create only the files your assignment lists. Do not commit, push, run `next build` or start a dev server unless told to. When you finish, run `timeout 300 npx tsc --noEmit -p .` in the foreground (never via a background monitor; the machine may be busy) and fix any errors in your files.
 
 ## Page template (follow exactly)
 ```tsx
@@ -39,6 +39,7 @@ export default function Page() {
 
 ## Audience and voice
 - Readers are solo creators who sell through Instagram DMs: coaches and course or cohort sellers (roughly 20K–500K followers, many in India, many in the US), and creators who handle brand deals themselves. They read on a phone between other work.
+- Hinglish or other regional posts: write natural Roman-script Hinglish the way Indian creators text (keep English words people actually use, such as brief, Reel, rate card), no Devanagari, nothing stiff or translated-sounding. Templates use gender-neutral verbs. The registry entry gets `inLanguage: "hi-Latn"`.
 - Voice: warm, direct, practical; second person; short paragraphs; British/Indian English spelling to match the existing article ("organise", "prioritise"). Contractions are fine. Sound like a person who has helped creators with this, not like a brand or a textbook.
 - Open with a situation the reader will recognise, in 2–4 short paragraphs, then answer the title question plainly within the first ~150 words. The answer must make sense on its own if quoted.
 - Use H2s that match how people phrase the sub-questions. Lead each section with its answer, then explain.
@@ -46,6 +47,8 @@ export default function Page() {
 - Length: 1,300–2,000 words of body copy plus the FAQ. Shorter is fine if it's complete; never pad.
 
 ## Research and accuracy (most important)
+- Start from the brief in `docs/seo/briefs/<slug>.md` if one exists. Its source dossier lists what to open first. Then check `docs/seo/research/` for prior findings.
+- Reading tricks: help.instagram.com/<id> renders with JavaScript, so read the same article at https://www.facebook.com/help/instagram/<id>, but link the help.instagram.com URL. Meta Business Help text is in the raw HTML (plain curl works). If a government site returns 403, use the department's own explainer page or the official gazette and say so. Never spoof a browser user agent to get past a block.
 - Verify every factual claim with WebSearch/WebFetch against a primary source: Meta/Instagram Help Center, Meta developer docs, government or legislation sites, official tool documentation. Link 3–8 of them inline where the claim is made. Every link must be a URL you actually opened and that loads.
 - Instagram changes its interface often. Describe menus as of November 2026 and only after you've confirmed them in Meta's Help Center. If you can't confirm a detail, describe it more generally rather than guessing.
 - No invented statistics, studies, quotes, testimonials, customer stories or results. Use a number only if you can cite it, and say who measured it and when.
