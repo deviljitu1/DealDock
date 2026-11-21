@@ -67,7 +67,6 @@ export const blogPosts: readonly BlogPost[] = [
     topic: "Instagram DMs",
     publishedAt: "2026-11-20",
     updatedAt: "2026-11-20",
-    draft: true,
     image: { url: "/blog/instagram-message-requests.webp", width: 1600, height: 900, alt: "An illustrated phone with Primary, General, Requests and Hidden requests folders" },
     thumbnail: "/blog/instagram-message-requests.webp",
   },
