@@ -1,8 +1,8 @@
 # Content queue
 
-The `search-growth` skill and the founders work from this list. One row per page. Statuses: `idea` → `drafting` → `in review` (founder edits before merge) → `live` → `refresh due`.
+The `search-growth` skill and the founders work from this list. One row per page. Statuses: `idea` → `briefed` (brief in `docs/seo/briefs/`) → `drafting` → `in review` (branch pushed; a founder edits, opens the PR and merges) → `live` → `refresh due`. The process lives in the skills `blog-research`, `blog-write`, `blog-verify` and `blog-publish`.
 
-House rules: `src/app/blog/AGENTS.md`. Register every post in `src/lib/blog-posts.ts` before its page exists. Nothing goes live without a founder's review; drafts sit on a local branch and are never pushed until approved.
+House rules: `src/app/blog/AGENTS.md`. Register every post in `src/lib/blog-posts.ts` before its page exists. Nothing goes live without a founder's review. Drafts go on a content branch that may be pushed, but Claude never opens a PR for it or merges it.
 
 ## Live
 
@@ -10,7 +10,7 @@ House rules: `src/app/blog/AGENTS.md`. Register every post in `src/lib/blog-post
 |---|---|---|---|
 | `/blog/influencer-brand-dms`: From Instagram DMs to paid brand deals | brand collaboration DMs, manage brand enquiries | 5 Nov 2026 | Feb 2027 |
 
-## In review (local branch `seo/articles`, not pushed)
+## In review (branch `seo/articles`, pushed 7 Nov 2026, no PR yet)
 
 | Page | Main searches | Notes |
 |---|---|---|
